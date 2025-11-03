@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:systemha/core/extensions/context_extension.dart';
 import 'package:systemha/core/helpers/validation_helper.dart';
 import 'package:systemha/core/routes/app_routes.dart';
+import 'package:systemha/core/style/app_images.dart';
 import 'package:systemha/core/style/colors.dart';
 import 'package:systemha/core/style/app_text_styles.dart';
 import 'package:systemha/core/widgets/custom_button.dart';
@@ -24,29 +25,26 @@ class ResetPasswordView extends StatelessWidget {
           final cubit = context.read<ResetPasswordCubit>();
 
           return Scaffold(
-            backgroundColor: AppColors.backgroundColor,
             body: Stack(
               children: [
-                
-               
-                // SvgPicture.asset(
-                //   'assets/employee/images/background.svg',
-                //   fit: BoxFit.cover,
-                //   width: double.infinity,
-                //   height: double.infinity,
-                // ),
+                SvgPicture.asset(
+                  AppImages.background,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
 
                 SafeArea(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24.w),
-                      child: Form(
-                        key: cubit.formKey,
+                  child: Center(
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.w),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(height: 120.h),
-
                             TextApp(
                               text: "Reset password",
                               weight: AppTextWeight.bold,
@@ -68,17 +66,19 @@ class ResetPasswordView extends StatelessWidget {
                               validator: ValidationHelper.validateEmail,
                             ),
 
-                            SizedBox(height: 60.h),
+                            SizedBox(height: 100.h),
 
                             CustomButton(
                               onPressed: state is ResetPasswordLoading
                                   ? () {}
                                   : () => cubit.sendResetLink(context),
                               text: 'Send Reset Link',
-                              width: 284.w,
+                              fontWeight: ButtonTextWeight.bold,
+                             
+                              width: 308.w,
                               height: 41.h,
                               borderRadius: 10.r,
-                              fontSize: 24.sp,
+                              fontSize: 22.sp,
                               isLoading: state is ResetPasswordLoading,
                               gradient: const LinearGradient(
                                 begin: Alignment.topCenter,
@@ -92,7 +92,7 @@ class ResetPasswordView extends StatelessWidget {
                               shadowColor: const Color(0xFF0C2944),
                             ),
 
-                            SizedBox(height: 30.h),
+                            SizedBox(height: 24.h),
 
                             GestureDetector(
                               onTap: () {
@@ -101,19 +101,18 @@ class ResetPasswordView extends StatelessWidget {
                               child: TextApp(
                                 text: "Back to Login",
                                 color: AppColors.grey,
-                                fontSize: 19.sp,
+                                fontSize: 21.sp,
                                 weight: AppTextWeight.bold,
-                                // shadow: [
-                                //   const Shadow(
-                                //     offset: Offset(0, 2),
-                                //     blurRadius: 2,
-                                //     color: Colors.black26,
-                                //   )
-                                // ],
+                                shadow: const [
+                                  Shadow(
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                    color: Color(0x66000000),
+                                  ),
+                                ],
+                                textAlign: TextAlign.center,
                               ),
                             ),
-
-                            SizedBox(height: 100.h),
                           ],
                         ),
                       ),
