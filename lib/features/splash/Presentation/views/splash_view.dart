@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:systemha/core/extensions/context_extension.dart';
 import 'package:systemha/core/routes/app_routes.dart';
 import 'package:systemha/core/style/app_images.dart';
 import 'package:systemha/core/style/colors.dart';
@@ -50,7 +51,7 @@ class _SplashViewState extends State<SplashView>
     _controller.forward();
 
     Future.delayed(const Duration(seconds: 5), () {
-      // Navigator.pushReplacementNamed(context, AppRoutes.onboarding);
+context.pushReplacementNamed(AppRoutes.login);
     });
   }
 
@@ -114,7 +115,7 @@ class _SplashViewState extends State<SplashView>
   opacity: _buttonFade,
   child: CustomButton(
     onPressed: () {
-      Navigator.pushReplacementNamed(context, AppRoutes.onboarding);
+context.pushReplacementNamed(AppRoutes.login);
     },
     text: 'Start',
     width: 289.w,
@@ -125,7 +126,7 @@ class _SplashViewState extends State<SplashView>
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: [
-        Color(0xFFD9D9D9),
+        AppColors.lightGrey,
         AppColors.primaryColor,
       ],
       stops: [0.0, 0.8942],

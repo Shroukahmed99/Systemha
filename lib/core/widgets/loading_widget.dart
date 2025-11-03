@@ -25,7 +25,6 @@ class LoadingWidget extends StatelessWidget {
             color: backgroundColor,
           ),
         ),
-        // مركز الـ CircularProgressIndicator
         Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
