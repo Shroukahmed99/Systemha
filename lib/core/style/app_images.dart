@@ -16,6 +16,8 @@ class AppImages {
   static const String updateProfile = '$employeeIcons/update_profile.png';
   static const String close = '$employeeIcons/close.png';
   static const String arrowBack = '$employeeIcons/arrow_back.png';
+  static const String google = '$employeeIcons/google.png';
+  static const String facebook = '$employeeIcons/facebook.png';
 
 
   // Communication & Notifications
