@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:systemha/core/routes/base_routes.dart';
+import 'package:systemha/features/auth/Presentation/views/add_fingerprint_view.dart';
 import 'package:systemha/features/auth/Presentation/views/login_view.dart';
 import 'package:systemha/features/auth/Presentation/views/reset_password_view.dart';
 import 'package:systemha/features/auth/Presentation/views/sign_up_view%20.dart';
@@ -10,6 +11,7 @@ class AppRoutes {
   static const String login = 'login';
   static const String signUp = 'signUp';
   static const String resetPassword = 'resetPassword';
+  static const String addFingerPrint = 'addFingerPrint';
 
   static Route<void> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -32,6 +34,11 @@ class AppRoutes {
         case resetPassword:
         return BaseRoute(
           page: const ResetPasswordView(),
+        );
+
+        case addFingerPrint:
+        return BaseRoute(
+          page: const AddFingerprintView(),
         );
 
       default:
