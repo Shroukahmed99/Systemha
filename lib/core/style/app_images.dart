@@ -43,8 +43,14 @@ class AppImages {
   static const String companyId = '$employeeIcons/company_id.png';
   static const String managerId = '$employeeIcons/manager_id.png';
   static const String nationalId = '$employeeIcons/national_id.png';
+  static const String camera = '$employeeIcons/camera.png';
   static const String person = '$employeeImages/person.png';
+
+
 
   // Vacation
   static const String vacation = '$employeeIcons/Vocation.png';
+
+  //backgrounds
+  static const String background = '$employeeImages/background.svg';
 }

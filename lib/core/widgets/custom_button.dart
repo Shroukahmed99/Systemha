@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
     this.shadowColor,
   });
 
-  final VoidCallback onPressed;
+  final dynamic onPressed;
   final String text;
   final double? width;
   final double? height;
@@ -70,7 +70,16 @@ class CustomButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius ?? 12),
         child: InkWell(
           borderRadius: BorderRadius.circular(borderRadius ?? 12),
-          onTap: isLoading ? null : onPressed,
+          onTap: isLoading
+              ? null
+              : () {
+                  if (onPressed != null) {
+                    var result = onPressed();
+                    if (result is Future) {
+                      result.catchError((e) {}); // لو async
+                    }
+                  }
+                },
           child: Align(
             alignment: Alignment.center,
             child: isLoading
@@ -85,7 +94,7 @@ class CustomButton extends StatelessWidget {
                 : child ??
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center, // ✅ النص في النص عموديًا
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         if (icon != null) ...[

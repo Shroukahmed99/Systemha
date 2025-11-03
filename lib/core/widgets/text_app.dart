@@ -12,8 +12,9 @@ class TextApp extends StatelessWidget {
   final bool? softWrap;
   final TextOverflow? overflow;
   final TextAlign? textAlign;
-  final double? letterSpacing; 
-  final double? height; 
+  final double? letterSpacing;
+  final double? height;
+  final List<Shadow>? shadow;   
 
   const TextApp({
     super.key,
@@ -27,6 +28,7 @@ class TextApp extends StatelessWidget {
     this.textAlign,
     this.letterSpacing,
     this.height,
+    this.shadow, 
   });
 
   @override
@@ -40,6 +42,7 @@ class TextApp extends StatelessWidget {
       fontSize: fontSize,
       height: height ?? 1.0,
       letterSpacing: letterSpacing,
+      shadows: shadow,
     );
 
     return Text(
